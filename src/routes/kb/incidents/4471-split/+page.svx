@@ -1,0 +1,53 @@
+---
+layout: runbook
+title: '#4471 · what the merged reports show'
+owner: support desk
+status: split
+reviewed: 2026-10-29
+signature: jaim
+---
+
+<script>
+  import ProblemTable from '#lib/kb/ProblemTable.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+
+  const tickets = {
+    parser: 'https://github.com/jaimkb/what-it-shows/issues/1',
+    hint: 'https://github.com/jaimkb/what-it-shows/issues/2',
+    'one-day-move': 'https://github.com/jaimkb/what-it-shows/issues/3',
+  };
+</script>
+
+[#4471](/kb/incidents/4471) was merged on subject lines ([decision 0001](/kb/decisions/0001-dedupe-by-subject))
+and marked known: one bug, one fix queued. Read by what the reports say, by which tenant sent them
+and by how they came in, it holds more than one problem. Each now has its own ticket.
+
+<Callout kind="warn">
+The fix queued for #4471 covers <code>parser</code> only. The other rows stay broken after it ships.
+</Callout>
+
+## What #4471 holds
+
+<ProblemTable ticket={4471} {tickets} />
+
+## How each report was placed
+
+- **`parser`**: the shared parser reads every date month first, and these tenants write the day
+  first. The date comes out with day and month swapped. Placed by the tenant's locale, not by
+  the intake tag, which guessed from the reporter's browser and is often wrong.
+- **`hint`**: the report came through the booking form of a tenant on `booking-v3`. That form
+  prints `MM/DD/YYYY` under its date field, people type month first as told, and the form reads
+  the date the tenant's way, day first. Same swapped date, different bug: the parser fix does
+  not touch it.
+- **`one-day-move`**: the desk read these as a date one day off, not a swap: Tuesday shown as
+  Monday, one meeting on two days for people in two time zones. A month/day fix will not move
+  them. Listed in `desk-notes.json`.
+
+## What changes on the desk
+
+- Count reports by id: the ticket export repeats some reports across pages.
+- A shared subject line does not make two reports one bug. Check the tenant and the way in
+  before merging into a big ticket.
+
+<RenderStamp {signature} />

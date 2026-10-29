@@ -13,6 +13,7 @@ export default defineConfig({
       adapter: adapter(),
       alias: { '#lib': 'src/lib', '#lib/*': 'src/lib/*' },
       prerender: { entries: ['*'], handleHttpError: 'warn' },
+      inlineStyleThreshold: Infinity,
     }),
   ],
 });
