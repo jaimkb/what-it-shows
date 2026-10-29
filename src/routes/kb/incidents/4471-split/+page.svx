@@ -42,7 +42,8 @@ The fix queued for #4471 covers <code>parser</code> only. The other rows stay br
   not touch it.
 - **`one-day-move`**: the desk read these as a date one day off, not a swap: Tuesday shown as
   Monday, one meeting on two days for people in two time zones. A month/day fix will not move
-  them. Listed in `desk-notes.json`.
+  them. Listed in `desk-notes.json`, and counted where the desk files them, under their tenant's
+  cause.
 
 ## What changes on the desk
 
