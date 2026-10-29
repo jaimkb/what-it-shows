@@ -2,7 +2,7 @@
 layout: runbook
 title: '#4471 · what the merged reports show'
 owner: support desk
-status: split
+status: open
 reviewed: 2026-10-29
 signature: jaim
 ---
@@ -24,12 +24,21 @@ and marked known: one bug, one fix queued. Read by what the reports say, by whic
 and by how they came in, it holds more than one problem. Each now has its own ticket.
 
 <Callout kind="warn">
-The fix queued for #4471 covers <code>parser</code> only. The other rows stay broken after it ships.
+Engineering closed #4471 on 5 October. That fixed <code>parser</code> and retired the form behind
+<code>hint</code>. It did not touch <code>one-day-move</code>, which is still open.
 </Callout>
 
 ## What #4471 holds
 
 <ProblemTable ticket={4471} {tickets} />
+
+## Where each stands
+
+- **`parser`**: fixed by `fix(dates): parse dd/mm for eu locales`. Ticket closed.
+- **`hint`**: won't fix. The `booking-v3` form is retired, so no new reports come in this way.
+  Ticket closed.
+- **`one-day-move`**: open. Neither change above moves a date that lands one day off. Ticket
+  open.
 
 ## How each report was placed
 
