@@ -4,7 +4,7 @@ title: '#4471 · what the merged reports show'
 owner: support desk
 status: open
 reviewed: 2026-10-29
-signature: jaim
+signature: v1.eyJzdWIiOiIxOTcxIiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTMyOTQxNTcsImV4cCI6MTc5MzM4MDU1N30.8eX25XDwGzbfcl466caggfY4QDeAWjzxUc1vbZ3LEyQ
 ---
 
 <script>
